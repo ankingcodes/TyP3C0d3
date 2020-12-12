@@ -19,7 +19,9 @@ const Cursor = props => {
 class Editor extends React.Component {
   state = {
     totalTyped: 0,
-    idx: 0
+    idx: 0,
+    count: 0,
+    typo: 0
   }
   componentDidMount() {
     highlight.highlightBlock(findDOMNode(this.refs.code))
@@ -32,15 +34,23 @@ class Editor extends React.Component {
     console.log(this.state.idx)
   }
 
-  handleKeyDown(evt) {
+  handleKeyDown=(evt) => {
     console.log(evt.key)
     console.log(this.state)
+    if(evt.key===[...data][this.state.idx]){
+      this.setState({count: this.state.count+1})
+      this.setState({idx: this.state.idx+1})
+    }
+    else{
+      this.setState({typo: this.state.typo+1})
+    }
   }
 
   render() {
     return (
       <Container >
-        <h1>Total Typed: {this.state.totalTyped}</h1>
+        <h1>Correctly Typed: {this.state.count}</h1>
+        <h1>Typo: {this.state.typo}</h1>
         <pre>
           <code ref='code' className={'javascript'}>
             {[...data].map((r, i) =>
