@@ -22,7 +22,8 @@
     "react-typing-animation": "^1.6.2",
     "reactstrap": "^8.4.1",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.1"
+    "semantic-ui-react": "^2.0.1",
+    "semantic-ui-react-form-validator": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
